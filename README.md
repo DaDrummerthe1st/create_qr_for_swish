@@ -11,3 +11,10 @@ Detta projekt möjliggör att skapa en egen qr-kod som kan scannas av swish-appe
 * QR-koden ska ha en fixerad storlek, oavsett mängd data
 * Att nedladdningsfunktionen inte ska kräva lokalt sparad fil
 * Tillägg av egen bild i mitten av qr-koden
+* Bättre val av färgtema och placeringar på datorskärm
+
+## Contribution
+Om du vill bidra så skicka gärna en ticket på önskad funktionalitet eller problem som uppstår
+
+## Ansvar
+Appen och tjänsten används på fullständigt eget ansvar. Appen är inte endorsed av någon myndighet eller något företag.
