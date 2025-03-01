@@ -11,10 +11,9 @@ import qrcode
 st.header("Skapa QR-kod för Swish")
 
 # initialize input data
-st.write("Tomma fält innebär att swish-appen kommer kräva att de fylls i senare")
 receiver = st.text_input('Mottagare', help="Mottagare måste fyllas i") # TODO: connect to contacts locally
 message = st.text_input('Meddelande', max_chars=50)
-amount = st.number_input('Summa') # TODO: calculator
+amount = st.number_input('Summa', help="Tomma fält innebär att swish-appen kommer kräva att de fylls i senare") # TODO: calculator
 
 # to add some safety to the app
 receiver = urllib.parse.quote(receiver, safe="") # safe is for include the '/' character in quoting
