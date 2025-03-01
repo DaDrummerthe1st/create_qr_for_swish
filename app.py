@@ -6,7 +6,7 @@ import streamlit as st
 import qrcode
 
 
-"""Since the qr reader in the swish app is only a text input from a web link custom qr-codes can be built"""
+#"""Since the qr reader in the swish app is only a text input from a web link custom qr-codes can be built"""
 
 st.header("Skapa QR-kod för Swish")
 
