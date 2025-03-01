@@ -4,14 +4,15 @@ import os
 import numpy as np
 import streamlit as st
 import qrcode
-from streamlit import download_button
+
 
 """Since the qr reader in the swish app is only a text input from a web link custom qr-codes can be built"""
 
 st.header("Skapa QR-kod för Swish")
 
 # initialize input data
-receiver = st.text_input('Mottagare') # TODO: connect to contacts locally
+st.write("Tomma fält innebär att swish-appen kommer kräva att de fylls i senare")
+receiver = st.text_input('Mottagare', help="Mottagare måste fyllas i") # TODO: connect to contacts locally
 message = st.text_input('Meddelande', max_chars=50)
 amount = st.number_input('Summa') # TODO: calculator
 
@@ -19,8 +20,10 @@ amount = st.number_input('Summa') # TODO: calculator
 receiver = urllib.parse.quote(receiver, safe="") # safe is for include the '/' character in quoting
 message = urllib.parse.quote(message, safe="")
 
+# TODO: Add a custom picture in the middle inside qr-code
+
 # initialize qrcode
-qr = qrcode.QRCode(
+qr = qrcode.QRCode( # TODO: fixed size no matter amount of information.
     version=1, # 1-40, if set to None qr.make(fit=True) autodetermines size
     box_size=10, # px size of each little "square", using a big number - made huge difference when reading qr
     error_correction=qrcode.constants.ERROR_CORRECT_L
@@ -41,7 +44,7 @@ qr.add_data(qr_string)
 qr.make()
 phone_qr = qr.make_image(fill_color="white", back_color="black")
 
-phone_qr_as_np = np.array(phone_qr)
+phone_qr_as_np = np.array(phone_qr) # because otherwise I'd have to first store it locally
 st.image(phone_qr_as_np)
 st.write(qr_string)
 
